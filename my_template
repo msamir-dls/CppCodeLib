@@ -1,0 +1,152 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+typedef long long LL;
+typedef pair<int, int> pii;
+typedef pair<LL, LL> pll;
+typedef pair<string, string> pss;
+typedef vector<int> vi;
+typedef vector<vi> vvi;
+typedef vector<pii> vii;
+typedef vector<LL> vl;
+typedef vector<vl> vvl;
+
+double EPS = 1e-9;
+int INF = 1000000005;
+long long INFF = 1000000000000000005LL;
+double PI = acos(-1);
+
+
+struct my_hash {
+    const uint64_t RANDOM = chrono::steady_clock::now().time_since_epoch().count();
+    static uint64_t splitmix64(uint64_t x) {
+        x += 0x9e3779b97f4a7c15;
+        x = (x ^ (x >> 30)) * 0xbf58476d1ce4e5b9;
+        x = (x ^ (x >> 27)) * 0x94d049bb133111eb;
+        return x ^ (x >> 31);
+    }
+    size_t operator()(uint64_t x) const {
+        return splitmix64(x + RANDOM);
+    }
+};
+// gp_hash_table<int,int,my_hash> m;
+// unordered_map<int, int, my_hash> m;
+//unordered_set<int, my_hash> s;
+
+
+#ifdef TESTING
+#define DEBUG fprintf(stderr, "====TESTING====\n")
+#define VALUE(x) cerr << "The value of " << #x << " is " << x << endl
+#define debug(...) fprintf(stderr, __VA_ARGS__)
+#else
+#define DEBUG
+#define VALUE(x)
+#define debug(...)
+#endif
+
+#define T template< class 
+#define FOR(a, b, c) for (int(a) = (b); (a) < (c); ++(a))
+#define FORN(a, b, c) for (int(a) = (b); (a) <= (c); ++(a))
+#define FORD(a, b, c) for (int(a) = (b); (a) >= (c); --(a))
+#define FORSQ(a, b, c) for (int(a) = (b); (a) * (a) <= (c); ++(a))
+#define FORC(a, b, c) for (char(a) = (b); (a) <= (c); ++(a))
+#define loop(a, b) for (auto (a) : (b))
+#define rep(i, n) FOR(i, 0, n)
+#define repn(i, n) FORN(i, 1, n)
+#define SQR(x) ((LL)(x) * (x))
+#define RESET(a, b) memset(a, b, sizeof(a))
+#define f first
+#define s second
+#define mp make_pair
+#define pb push_back
+#define ALL(v) v.begin(), v.end()
+#define ALLA(arr, sz) arr, arr + sz
+#define SIZE(v) (int)v.size()
+#define SORT(v) sort(ALL(v))
+#define PERMUTE next_permutation
+#define TC(t) while (t--)
+
+//template.start();
+T t>
+t getmin(t a, t b){return a<b?a:b;}
+
+T t>
+t getmax(t a, t b){return a>b?a:b;}
+
+T t>
+void show(t v){
+    loop(i, v) cout<<i<<' ';
+}
+
+T t, class u>
+bool search(t a, u b){
+    loop(i, a) if( i == b) return 1;
+    return 0;
+}
+
+T t, class u>
+u maxofarr(t a, u b){
+    u maximum = INT_MIN;
+    loop(i, a) if( i > maximum) maximum = i;
+    return maximum;
+}
+T u>
+u modInverse(u a, u m)
+{
+    u m0 = m;
+    u y = 0, x = 1;
+    if (m == 1) return 0;
+    while (a > 1) {
+        u q = a / m;
+        u t = m;
+        m = a % m, a = t;
+        t = y;
+        y = x - q * y;
+        x = t;
+    }
+    if (x < 0) x += m0;
+    return x;
+}
+
+T u>
+u gcd (u a, u b) {
+    while (b) {
+        a %= b;
+        swap(a, b);
+    }
+    return a;
+}
+
+T t>
+int power(t x, t y)  
+{  
+    t res = 1;  
+    if (x == 0) return 0;
+    while (y > 0)  
+    {
+        if (y & 1)  
+            res = (res*x);  
+        y = y>>1;  
+        x *= x;  
+    }  
+    return res;  
+}  
+
+// template.end();
+
+void removeduplicate(vector<int>& vec){
+    set<int> s( vec.begin(), vec.end() );
+    vec.assign( s.begin(), s.end() );
+}
+
+int main()
+{
+    #ifndef ONLINE_JUDGE
+	freopen("in.txt", "r", stdin);
+	freopen("out.txt", "w", stdout);
+    #endif
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    
+    return 0;
+}

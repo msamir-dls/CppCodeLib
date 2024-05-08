@@ -1,0 +1,32 @@
+#include<iostream>
+using namespace std;
+template<class T>
+class pointer{
+     T *p;
+   public:
+     pointer(){
+         p = new T(0);    
+     }
+     pointer(T a){
+         p = new T(a);
+     }
+     pointer(int b, T value){
+         p = new T[b];
+         for(int i=0;i<b;i++) p[i] = value;
+     }
+     ~pointer(){
+         delete[] p; 
+      }
+     void print(){
+         cout<<*p;
+     }
+     void printl(int b){
+         for(int i=0;i<b;i++)cout<<p[i]<<' ';
+     }
+};
+int main()
+{
+    pointer<double>p(5, 3.5);
+    p.printl(5);
+    return 0;
+}

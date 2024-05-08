@@ -1,0 +1,39 @@
+class matrix{
+public:
+	int row, col;
+	vector<vector<ll>> num;
+	matrix(int row, int col, int defaultValue = 0){
+		this->num = vector<vector<ll>>(row, vector<ll>(col, defaultValue));
+		this->row = row, this->col = col;
+	}
+	matrix(vector<vector<ll>> num){
+		this->num = num;
+		this->row = this->num.size();
+		this->col = this->num[0].size();
+	}
+	matrix operator *(matrix &another){
+		if(this->col != another.row){
+			cout<<"Matrix cannot be multiplied"<<'\n';
+			throw "Wrong size";
+		}
+		matrix newone(this->row, another.col);
+		for(int r=0; r<newone.row; r++) for(int c=0; c<newone.col; c++){
+			for(int k=0; k<this->col; k++){	
+				newone.num[r][c] += this->num[r][k] * another.num[k][c];
+				newone.num[r][c] %= matrixRemainder;
+			}
+		} return newone;
+	}	
+	matrix operator ^(ll x){
+		if(x==0){
+			cout<<"Not Implemented"<<'\n';
+			throw "Not implemented";
+		}
+		else if(x==1) return *this;
+		else{
+			matrix halfpower = (*this) ^ (x/2);
+			if(x%2 == 0) return halfpower * halfpower;
+			else return halfpower * halfpower * (*this);
+		}
+	}
+};
